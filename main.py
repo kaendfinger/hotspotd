@@ -43,8 +43,11 @@ def configure():
 
 	f = open('run.dat','r')
 	lout=[]
+	driver = "nl80211"
+	if os.path.exists("/etc/rpi-isssue"):
+		driver = "rtl871xdrv"
 	for line in f.readlines():
-		lout.append(line.replace('<SSID>',SSID).replace('<PASS>',password).replace('<INTERFACE>',wlan))
+		lout.append(line.replace('<SSID>',SSID).replace('<PASS>',password).replace('<INTERFACE>',wlan).replace('<DRIVER>',driver))
 
 	f.close()
 	f = open('run.conf','w')
