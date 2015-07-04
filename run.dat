@@ -1,7 +1,7 @@
 #sets the wifi interface to use, is wlan0 in most cases
 interface=<INTERFACE>
 #driver to use, nl80211 works in most cases
-driver=nl80211
+driver=<DRIVER>
 #sets the ssid of the virtual wifi access point
 ssid=<SSID>
 #sets the mode of wifi, depends upon the devices you will be using. It can be a,b,g,n. Setting to g ensures backward compatiblity.
