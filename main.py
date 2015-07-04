@@ -39,12 +39,12 @@ def configure():
 	password = dc["password"]
 	IP = dc["ip"]
 	wlan = dc["wlan"]
-	inet = dc["inet"]
+	ppp = dc["inet"]
 
 	f = open('run.dat','r')
 	lout=[]
 	for line in f.readlines():
-		lout.append(line.replace('<SSID>',SSID).replace('<PASS>',password))
+		lout.append(line.replace('<SSID>',SSID).replace('<PASS>',password).replace('<INTERFACE>',wlan))
 
 	f.close()
 	f = open('run.conf','w')
