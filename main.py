@@ -133,11 +133,8 @@ def start_router():
 		print 'stopping dnsmasq'
 		cli.execute_shell('killall dnsmasq')
 
-
-	#stop hostapd if already running.
-	if cli.is_process_running('hostapd')>0:
-		print 'stopping hostapd'
-		cli.execute_shell('killall hostapd')
+	print 'stopping hostapd'
+	cli.execute_shell('killall hostapd')
 
 	#enable forwarding in sysctl.
 	print 'enabling forward in sysctl.'
@@ -200,6 +197,9 @@ def stop_router():
 	#~ if cli.is_process_running('hostapd')>0:
 		#~ cli.writelog('stopping hostapd')
 		#~ cli.execute_shell('pkill hostapd')
+
+	if cli.is_process_running('hostapd') > 0:
+		cli.execute_shell('pkill hostapd')
 
 	#stop dnsmasq
 	if cli.is_process_running('dnsmasq')>0:
